@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:rhsgrad/screens/settings_screen/account_details.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key});
@@ -13,6 +14,7 @@ class SettingsPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(48),
         child: AppBar(
+          elevation: 0,
           centerTitle: false,
           backgroundColor: Palette.bgcolor,
           leading: Padding(
@@ -49,7 +51,7 @@ class SettingsPage extends StatelessWidget {
         children: [
           // Example of a settings option
           buildSettingOption("Account Details", Iconsax.profile_circle5, () {
-            // Handle the tap on Option 1
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AccountDetails()),);
           }),
           SizedBox(height: 22,),
           buildSettingOption("Privacy and Security", Icons.privacy_tip_rounded, () {
@@ -68,11 +70,7 @@ class SettingsPage extends StatelessWidget {
             // Handle the tap on Option 2
           }),
           SizedBox(height: 22,),
-          buildSettingOption("Terms", Icons.contact_page_rounded, () {
-            // Handle the tap on Option 2
-          }),
-          SizedBox(height: 22,),
-          buildSettingOption("Privay Policy", Icons.policy, () {
+          buildSettingOption("Privacy Policy", Icons.policy, () {
             // Handle the tap on Option 2
           }),
           SizedBox(height: 22,),
@@ -131,3 +129,4 @@ class SettingsPage extends StatelessWidget {
     );
   }
 }
+

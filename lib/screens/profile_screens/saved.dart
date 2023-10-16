@@ -23,6 +23,7 @@ class SavedPage extends StatelessWidget {
       backgroundColor: Palette.bgcolor,
       appBar: PreferredSize(preferredSize: Size.fromHeight(48),
         child: AppBar(
+          elevation: 0,
             centerTitle: false,
             backgroundColor: Palette.bgcolor,
             leading:// Back arrow
