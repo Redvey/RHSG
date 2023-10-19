@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:rhsgrad/screens/settings_screen/account_details.dart';
+import 'package:rhsgrad/screens/settings_screen/Account%20Details/account_details.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key});

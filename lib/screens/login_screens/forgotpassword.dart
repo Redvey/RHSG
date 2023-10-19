@@ -74,6 +74,7 @@ class ForgotPassword extends StatelessWidget {
             SizedBox(height: ScreenUtil().setHeight(76)),
             LoginField(hintText: "Enter username", prefixIcon: Iconsax.profile_circle5),
             SizedBox(height: ScreenUtil().setHeight(27)),
+            //Next Button
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
