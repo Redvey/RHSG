@@ -5,7 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../consts/pallete.dart';
 
 class AccountDetails extends StatelessWidget {
-  const AccountDetails({super.key});
+  const AccountDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class AccountDetails extends StatelessWidget {
               color: Palette.textcons,
             ),
           ),
-
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(1),
             child: Divider(
@@ -47,18 +46,77 @@ class AccountDetails extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(24)),
-              border: Border(
-
-              )
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Personal Information',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
             ),
-          )
-        ],
+            SizedBox(height: 4),
+            Container(
+              width: 382,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xFFF0F0F0),
+                ),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Column(
+                children: <Widget>[
+                  buildOption('Username',prefixIcon: Icon(Iconsax.profile_circle5), suffixIcon: Icon(Icons.arrow_forward_ios_rounded)),
+                  buildOption('Email',prefixIcon: Icon(Icons.mail), suffixIcon: Icon(Icons.arrow_forward_ios_rounded)),
+                  buildOption('Phone Num',prefixIcon: Icon(Icons.phone), suffixIcon: Icon(Icons.arrow_forward_ios_rounded)),
+                  buildOption('Date of Birth',prefixIcon: Icon(Icons.cake), suffixIcon: Icon(Icons.arrow_forward_ios_rounded)),
+                  buildOption('Batch Num',prefixIcon: Icon(Icons.person), suffixIcon: Icon(Icons.arrow_forward_ios_rounded)),
+                ],
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Others',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: 4),
+            Container(
+              width: 382,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xFFF0F0F0),
+                ),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Column(
+                children: <Widget>[
+                  buildOption('Password',prefixIcon: Icon(Icons.lock), suffixIcon: Icon(Icons.arrow_forward)),
+                  buildOption('Download Personal Data',prefixIcon: Icon(Icons.shopping_bag), suffixIcon: Icon(Icons.download)),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+}
+
+Widget buildOption(String text, {Widget? suffixIcon,Widget? prefixIcon}) {
+  return ListTile(
+    leading: prefixIcon,
+    title: Text(text, style: TextStyle(color: Palette.textcons)),
+    trailing: suffixIcon,
+    onTap: () {
+      // Handle option tap here
+    },
+  );
 }
