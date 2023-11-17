@@ -42,7 +42,7 @@ class _LoginFieldState extends State<LoginField> {
         ),
         child: TextFormField(
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: Colors.black,
           ),
           obscureText: obscureText,
           decoration: InputDecoration(

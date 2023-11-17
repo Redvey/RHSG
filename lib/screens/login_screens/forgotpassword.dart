@@ -3,10 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/screens/login_screens/loginpage.dart';
 import 'package:rhsgrad/screens/login_screens/OTPpage.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rhsgrad/widgets/loginbox.dart';
-
 import '../../consts/pallete.dart';
 
 class ForgotPassword extends StatelessWidget {
