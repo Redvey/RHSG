@@ -49,7 +49,6 @@ class SettingsPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          // Example of a settings option
           buildSettingOption("Account Details", Iconsax.profile_circle5, () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => AccountDetails()),);
           }),

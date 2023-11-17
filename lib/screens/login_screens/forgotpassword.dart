@@ -55,7 +55,7 @@ class ForgotPassword extends StatelessWidget {
                     "Forgot password?",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: ScreenUtil().setSp(24),
                     ),
                   ),
@@ -64,7 +64,7 @@ class ForgotPassword extends StatelessWidget {
                     "Enter your email or phone number\nIf an account exists, you will receive its\nactivation code.",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.normal,
-                      color: Palette.textcons,
+                      color: Palette.desctext,
                       fontSize: ScreenUtil().setSp(16),
                     ),
                   ),
@@ -95,8 +95,8 @@ class ForgotPassword extends StatelessWidget {
               ),
               child: Text(
                 'Next',
-                style: TextStyle(
-                  color: Palette.next,
+                style: GoogleFonts.poppins(
+                  color: Palette.bgcolor,
                   fontSize: ScreenUtil().setSp(16), // Adjust font size as needed
                 ),
               ),

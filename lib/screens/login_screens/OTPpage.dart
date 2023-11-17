@@ -6,34 +6,70 @@ import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:rhsgrad/screens/login_screens/forgotpassword.dart';
 
+class OTPDigitFormField extends StatelessWidget {
+  final TextEditingController controller;
 
-class OtpPage extends StatelessWidget {
-  const OtpPage({super.key});
+  const OTPDigitFormField({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(430, 932)); // Initialize ScreenUtil
-
     final screenWidth = ScreenUtil().screenWidth;
+    final boxWidth = (screenWidth - ScreenUtil().setWidth(96)) / 4;
 
-    // Calculate button width as a percentage of the screen width
-    final buttonWidth = screenWidth * 0.9;
+    return SizedBox(
+      height: ScreenUtil().setHeight(69),
+      width: boxWidth,
+      child: TextFormField(
+        controller: controller,
+        onChanged: (value) {
+          if (value.length == 1) {
+            FocusScope.of(context).nextFocus();
+          }
+        },
+        style: GoogleFonts.poppins(color: Colors.black),
+        keyboardType: TextInputType.number,
+        textAlign: TextAlign.center,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1),
+          FilteringTextInputFormatter.digitsOnly,
+        ],
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Palette.containercolor,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
+            borderSide: BorderSide(
+              color: Palette.otpstroke,
+              width: ScreenUtil().setWidth(1 / 2),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-    // Calculate box width based on screen size
-    final boxWidth = (screenWidth - ScreenUtil().setWidth(96)) / 4; // 96 = 24 (left padding) + 24 (right padding) + 24 (gap between boxes) + 24 (gap at the ends)
+class OtpPage extends StatelessWidget {
+  const OtpPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = ScreenUtil().screenWidth;
+    ScreenUtil.init(context, designSize: Size(430, 932));
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
         backgroundColor: Palette.bgcolor,
-        leading:// Back arrow
-        Padding(
-          padding: const EdgeInsets.only(left: 24,),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 24),
           child: InkWell(
             onTap: () {
-              Navigator.pop(context, MaterialPageRoute(builder: (context) => ForgotPassword()),);
-
+              Navigator.pop(
+                context,
+                MaterialPageRoute(builder: (context) => ForgotPassword()),
+              );
             },
             child: Icon(
               Iconsax.arrow_circle_left5,
@@ -42,11 +78,10 @@ class OtpPage extends StatelessWidget {
             ),
           ),
         ),
-
       ),
       backgroundColor: Palette.bgcolor,
       body: Padding(
-        padding: EdgeInsets.only(left: ScreenUtil().setWidth(24), top: ScreenUtil().setHeight(48), right: ScreenUtil().setWidth(24)),
+        padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24), vertical: ScreenUtil().setHeight(48)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -60,15 +95,15 @@ class OtpPage extends StatelessWidget {
                     "Enter OTP",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: ScreenUtil().setSp(24),
                     ),
                   ),
                   Text(
-                    "An authentication code has been\nsend to your registered mail.",
+                    "An authentication code has been\nsent to your registered mail.",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.normal,
-                      color: Palette.textcons,
+                      color: Palette.desctext,
                       fontSize: ScreenUtil().setSp(16),
                     ),
                   ),
@@ -76,59 +111,29 @@ class OtpPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: ScreenUtil().setHeight(44)),
-            // OTP Boxes
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
                 4,
-                    (index) => SizedBox(
-                  height: ScreenUtil().setHeight(69),
-                  width: boxWidth,
-                  child: TextFormField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    style: GoogleFonts.poppins(color: Colors.white),
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Palette.containercolor, // Set the background color
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)), // Set the border radius using ScreenUtil
-                        borderSide: BorderSide(
-                          color: Palette.otpstroke, // Set the border color
-                          width: ScreenUtil().setWidth(1.0), // Set the border width using ScreenUtil
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                    (index) => OTPDigitFormField(controller: TextEditingController()),
               ),
             ),
             SizedBox(height: ScreenUtil().setHeight(45)),
-            // Next button
             ElevatedButton(
               onPressed: () {
                 // Add your button action here
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Palette.iconix, // Set the button color
+                backgroundColor: Palette.iconix,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)), // Set the border radius using ScreenUtil
+                  borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                 ),
-                minimumSize: Size(buttonWidth, ScreenUtil().setHeight(69)), // Set the button size using ScreenUtil
+                minimumSize: Size(screenWidth * 0.9, ScreenUtil().setHeight(69)),
               ),
               child: Text(
                 'Continue',
-                style: TextStyle(
-                  color: Palette.next,
+                style: GoogleFonts.poppins(
+                  color: Palette.bgcolor,
                   fontSize: ScreenUtil().setSp(16),
                 ),
               ),
@@ -139,4 +144,3 @@ class OtpPage extends StatelessWidget {
     );
   }
 }
-

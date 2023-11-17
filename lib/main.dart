@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rhsgrad/screens/login_screens/loginpage.dart';
-import 'package:rhsgrad/screens/profile_screens/profilescreen.dart';
-import 'package:rhsgrad/screens/profile_screens/tempy.dart';
-import 'package:rhsgrad/screens/settings_screen/mainsettings.dart';
 
 import 'screens/settings_screen/Account Details/Username Settings.dart';
 
@@ -21,7 +18,7 @@ class Home extends StatelessWidget {
         // Define other routes here
       },
       debugShowCheckedModeBanner: false,
-      home: SettingsPage(),
+      home: LoginPage(),
     );
   }
 }

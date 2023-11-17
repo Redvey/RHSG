@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/consts/pallete.dart';
+import 'package:rhsgrad/screens/settings_screen/Account%20Details/account_details.dart';
 
 
 class UsernameSettings extends StatelessWidget {
@@ -22,6 +22,8 @@ class UsernameSettings extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24),
             child: InkWell(
               onTap: () {
+                Navigator.pop(context, MaterialPageRoute(builder: (context) => AccountDetails()),);
+
               },
               child: Icon(
                 Iconsax.arrow_circle_left5,

@@ -7,7 +7,6 @@ import 'package:rhsgrad/screens/profile_screens/contributions.dart';
 import 'package:rhsgrad/screens/profile_screens/hearts.dart';
 import 'package:rhsgrad/screens/profile_screens/media_shared.dart';
 import 'package:rhsgrad/screens/profile_screens/profilescreen.dart';
-import 'package:rhsgrad/screens/profile_screens/saved.dart';
 import 'package:rhsgrad/widgets/profilescreen_widgets/pf_widgets.dart';
 
 import '../../widgets/profilescreen_widgets/temp.dart';

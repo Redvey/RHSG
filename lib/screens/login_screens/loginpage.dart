@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rhsgrad/screens/login_screens/forgotpassword.dart';
-import 'package:rhsgrad/widgets/buttons.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/widgets/loginbox.dart';
@@ -16,27 +15,25 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Palette.bgcolor,
-      appBar: PreferredSize(preferredSize: Size.fromHeight(48),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(48),
         child: AppBar(
           elevation: 0,
-            centerTitle: false,
-            backgroundColor: Palette.bgcolor,
-            leading:// Back arrow
-            Padding(
-              padding: const EdgeInsets.only(left: 24,),
-              child: InkWell(
-                onTap: () {
-
-
-                },
-                child: Icon(
-                  Iconsax.arrow_circle_left5,
-                  color: Palette.textcons,
-                  size: 30,
-                ),
+          centerTitle: false,
+          backgroundColor: Palette.bgcolor,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 24),
+            child: InkWell(
+              onTap: () {
+                // Action on tap
+              },
+              child: Icon(
+                Iconsax.arrow_circle_left5,
+                color: Palette.textcons,
+                size: 30,
               ),
             ),
-
+          ),
         ),
       ),
       body: Padding(
@@ -44,7 +41,6 @@ class LoginPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             SizedBox(height: ScreenUtil().setHeight(30)),
             Padding(
               padding: EdgeInsets.only(left: ScreenUtil().setWidth(40)),
@@ -55,7 +51,7 @@ class LoginPage extends StatelessWidget {
                     "Let’s Sign You in",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: ScreenUtil().setSp(24),
                     ),
                   ),
@@ -63,7 +59,7 @@ class LoginPage extends StatelessWidget {
                     "we have missed you",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.normal,
-                      color: Palette.textcons,
+                      color: Palette.desctext,
                       fontSize: ScreenUtil().setSp(16),
                     ),
                   ),
@@ -88,41 +84,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: ScreenUtil().setHeight(16)),
-            // Or Divider
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Palette.textcons,
-                    height: 1,
-                  ),
-                ),
-                SizedBox(width: ScreenUtil().setWidth(10)),
-                Text(
-                  "or",
-                  style: GoogleFonts.poppins(
-                    fontSize: ScreenUtil().setSp(16),
-                    fontWeight: FontWeight.normal,
-                    color: Palette.textcons,
-                  ),
-                ),
-                SizedBox(width: ScreenUtil().setWidth(10)),
-                Expanded(
-                  child: Container(
-                    color: Palette.textcons,
-                    height: 1,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: ScreenUtil().setHeight(43)),
-            LoginButtons(),
           ],
         ),
       ),
     );
+
   }
 }
-
