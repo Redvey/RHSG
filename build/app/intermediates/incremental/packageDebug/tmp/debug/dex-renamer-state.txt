@@ -1,4 +1,4 @@
-#Fri Nov 17 22:47:46 IST 2023
-base.0=/Users/redvey/StudioProjects/demo/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Sat Nov 18 11:08:22 IST 2023
+base.0=/Users/redvey/StudioProjects/rhs_alumni/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

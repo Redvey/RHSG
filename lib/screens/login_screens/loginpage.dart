@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rhsgrad/consts/curve_design.dart';
 import 'package:rhsgrad/screens/login_screens/forgotpassword.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/widgets/loginbox.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,29 +16,18 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Palette.bgcolor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(48),
-        child: AppBar(
-          elevation: 0,
-          centerTitle: false,
-          backgroundColor: Palette.bgcolor,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: InkWell(
-              onTap: () {
-                // Action on tap
-              },
-              child: Icon(
-                Iconsax.arrow_circle_left5,
-                color: Palette.textcons,
-                size: 30,
-              ),
-            ),
-          ),
-        ),
+      body: Stack(
+          children: [
+          // CustomPaint widget to draw the modified semi-circle
+          CustomPaint(
+          painter: SemiCirclePainter(),
+      child: Container(
+        height: 150, // Set the height to 30
+        width: MediaQuery.of(context).size.width,
       ),
-      body: Padding(
-        padding: EdgeInsets.only(left: ScreenUtil().setWidth(24), top: ScreenUtil().setHeight(48), right: ScreenUtil().setWidth(24)),
+    ),
+            Padding(
+        padding: EdgeInsets.only(left: ScreenUtil().setWidth(24), top: ScreenUtil().setHeight(153), right: ScreenUtil().setWidth(24)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -84,10 +74,53 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: ScreenUtil().setHeight(27)),
+            // Next Button
+            ElevatedButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => OtpPage()),
+                // );
+                // Button action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Palette.iconix,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
+                ),
+                minimumSize: Size(
+                  ScreenUtil().setWidth(382), // Replace buttonWidth with your desired width
+                  ScreenUtil().setHeight(69), // Adjust the height as needed
+                ),
+              ),
+              child: Text(
+                'Next',
+                style: GoogleFonts.poppins(
+                  color: Palette.bgcolor,
+                  fontSize: ScreenUtil().setSp(16), // Adjust font size as needed
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
-    );
+            // Back Arrow
+            Positioned(
+              top: 73,
+              left: 24,
+              child: InkWell(
+                onTap: () {
 
+                },
+                child: Icon(
+                  Iconsax.arrow_circle_left5,
+                  color: Palette.textcons,
+                  size: 30,
+                ),
+              ),
+            ),
+    ]),);
   }
 }

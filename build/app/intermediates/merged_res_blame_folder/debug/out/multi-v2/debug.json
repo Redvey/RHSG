@@ -694,7 +694,7 @@
             "outputFile": "com.rhsgrad.rhsgrad.app-merged_res-11:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/redvey/StudioProjects/demo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/redvey/StudioProjects/rhs_alumni/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -1308,7 +1308,7 @@
                     }
                 },
                 {
-                    "source": "/Users/redvey/StudioProjects/demo/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/redvey/StudioProjects/rhs_alumni/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

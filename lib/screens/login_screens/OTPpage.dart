@@ -6,6 +6,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/consts/pallete.dart';
 import 'package:rhsgrad/screens/login_screens/forgotpassword.dart';
 
+import '../../consts/curve_design.dart';
+
 class OTPDigitFormField extends StatelessWidget {
   final TextEditingController controller;
 
@@ -56,32 +58,23 @@ class OtpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = ScreenUtil().screenWidth;
     ScreenUtil.init(context, designSize: Size(430, 932));
+    final boxSize = (screenWidth - ScreenUtil().setWidth(96)) / 4;
+
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: false,
-        backgroundColor: Palette.bgcolor,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 24),
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(
-                context,
-                MaterialPageRoute(builder: (context) => ForgotPassword()),
-              );
-            },
-            child: Icon(
-              Iconsax.arrow_circle_left5,
-              color: Palette.textcons,
-              size: 30,
-            ),
-          ),
-        ),
-      ),
       backgroundColor: Palette.bgcolor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24), vertical: ScreenUtil().setHeight(48)),
+      body: Stack(
+          children: [
+          // CustomPaint widget to draw the modified semi-circle
+          CustomPaint(
+          painter: SemiCirclePainter(),
+      child: Container(
+        height: 150, // Set the height to 30
+        width: MediaQuery.of(context).size.width,
+      ),
+    ),
+    Padding(
+        padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24), vertical: ScreenUtil().setHeight(153)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -115,7 +108,11 @@ class OtpPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
                 4,
-                    (index) => OTPDigitFormField(controller: TextEditingController()),
+                    (index) => SizedBox(
+                  width: boxSize,
+                  height: boxSize,
+                  child: OTPDigitFormField(controller: TextEditingController()),
+                ),
               ),
             ),
             SizedBox(height: ScreenUtil().setHeight(45)),
@@ -138,9 +135,25 @@ class OtpPage extends StatelessWidget {
                 ),
               ),
             ),
+            // Back Arrow
+
           ],
         ),
       ),
-    );
+            Positioned(
+              top: 73,
+              left: 24,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ForgotPassword()),);
+                },
+                child: Icon(
+                  Iconsax.arrow_circle_left5,
+                  color: Palette.textcons,
+                  size: 30,
+                ),
+              ),
+            ),
+    ]),);
   }
 }

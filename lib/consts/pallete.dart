@@ -10,6 +10,7 @@ class Palette {
   static const Color buttstroke = Color(0xFFF0F0F0);
   static const Color appbartext = Color(0xFF292D32);
   static const Color desctext = Color(0xFF636363);
+  static const Color curve = Color(0xFFFFF9F5);
 
 
 
