@@ -2,6 +2,7 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 import "package:rhsgrad/consts/pallete.dart";
+import "package:rhsgrad/widgets/custom_appbar.dart";
 
 import "../../consts/curve_design.dart";
 
@@ -29,72 +30,7 @@ class DonatePage extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 24,right: 24,top: 52),
                     child: Column(
                       children: [
-                        Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              decoration: ShapeDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage("https://i.pinimg.com/564x/09/4e/3e/094e3edcfbc89104c9cd0a37ec1fc53d.jpg"),
-                              fit: BoxFit.fill,
-                            ),
-                            shape: OvalBorder(),
-                              ),
-                            ),
-                            SizedBox(width: 79,),
-                            ShaderMask(
-                              blendMode: BlendMode.srcIn,
-                              shaderCallback: (Rect bounds) {
-                                return Palette.RHSGrad.createShader(bounds); // Use your desired gradient here
-                              },
-                              child: Text(
-                                'RHSGrad',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Mont-Trial',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 39,),
-                            Row(
-                              children: [
-                                Container(
-                                  // child: Image.asset("assets/searchicon.svg",),
-                                  child: Icon(Icons.search,color: Palette.iconix,),
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Palette.iconbg,
-                                ),),
-                                SizedBox(width: 7,),
-                                Container(child:
-                                Icon(CupertinoIcons.bell_solid,
-                                color: Palette.bellicon,),
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Palette.iconbg,
-                                ),),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 11,),
-                        Container(
-                          width: 382,
-                          height: 1,
-                          decoration: ShapeDecoration(
-                            color: Palette.buttstroke,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
+                        CustomAppBar(),
                         SizedBox(height: 46,),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -175,33 +111,27 @@ class DonatePage extends StatelessWidget {
                   ),
                 ),
                         SizedBox(height: 37,),
-                        Positioned(
-                          // frame2154i5y (0:74)
-                          left:  24*fem,
-                          top:  497*fem,
-                          child:
-                          Container(
-                            width:  382*fem,
-                            height:  124.25*fem,
-                            decoration:  BoxDecoration (
-                              color:  Color(0xb2000000),
-                              borderRadius:  BorderRadius.circular(24*fem),
-                              image:  DecorationImage (
-                                fit:  BoxFit.cover,
-                                image:  NetworkImage("https://i.pinimg.com/564x/11/dd/74/11dd74e35b135b86673365667a8c3b90.jpg")
-                              ),
+                        Container(
+                          width:  382*fem,
+                          height:  124.25*fem,
+                          decoration:  BoxDecoration (
+                            color:  Color(0xb2000000),
+                            borderRadius:  BorderRadius.circular(24*fem),
+                            image:  DecorationImage (
+                              fit:  BoxFit.cover,
+                              image:  NetworkImage("https://i.pinimg.com/564x/11/dd/74/11dd74e35b135b86673365667a8c3b90.jpg")
                             ),
+                          ),
+                          child:
+                          Center(
                             child:
-                            Center(
-                              child:
-                              Text(
-                                'THANK YOU',
-                                style:  GoogleFonts.poppins (
-                                  fontSize:  28.6723957062*ffem,
-                                  fontWeight:  FontWeight.w700,
-                                  height:  1.5*ffem/fem,
-                                  color:  Color(0xffffffff),
-                                ),
+                            Text(
+                              'THANK YOU',
+                              style:  GoogleFonts.poppins (
+                                fontSize:  28.6723957062*ffem,
+                                fontWeight:  FontWeight.w700,
+                                height:  1.5*ffem/fem,
+                                color:  Color(0xffffffff),
                               ),
                             ),
                           ),

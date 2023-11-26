@@ -18,6 +18,9 @@ class Palette {
 
   static const Color color1 = Color(0xFFFE0000); // #FE0000
   static const Color color2 = Color(0xFFEB583E); // #EB583E
+  static const Color eventspagetext = Color(0xFF797979); // #EB583E
+  static const Color searchboxcolor = Color(0xFFFFF1EF); // #EB583E
+  static const Color genreblack = Color(0xFF222222); // #EB583E
 
   static const LinearGradient RHSGrad = LinearGradient(
     begin: Alignment.centerLeft,
