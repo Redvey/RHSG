@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rhsgrad/screens/nav_screens/events_page.dart';
+import 'package:rhsgrad/screens/nav_screens/notification_page.dart';
 
 import 'screens/settings_screen/Account Details/Username Settings.dart';
 
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
         // Define other routes here
       },
       debugShowCheckedModeBanner: false,
-      home: EventsPage(),
+      home: NotificationPage(),
     );
   }
 }

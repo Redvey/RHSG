@@ -36,10 +36,36 @@ class NotificationPage extends StatelessWidget {
                 onTap: () {
 
                 },
-                child: Icon(
-                  Iconsax.arrow_circle_left5,
-                  color: Palette.textcons,
-                  size: 30,
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.start,
+
+                      children: [
+                        Icon(
+                          Iconsax.arrow_circle_left5,
+                          color: Palette.textcons,
+                          size: 30,
+                        ),
+                        SizedBox(width: 12,),
+                        Text("Activities",style: GoogleFonts.poppins(
+                          color: Palette.hinttext,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500
+                        ),)
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    Container(
+                      width: 382,
+                      height: 1,
+                      decoration: ShapeDecoration(
+                        color: Palette.buttstroke,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -48,6 +74,7 @@ class NotificationPage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    SizedBox(height: 20,),
                     //Notifications boxes
                     Container(
                       width: 382,
