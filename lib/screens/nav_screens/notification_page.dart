@@ -5,8 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:rhsgrad/consts/curve_design.dart';
 
 import '../../consts/pallete.dart';
-import '../../widgets/loginbox.dart';
-import '../login_screens/forgotpassword.dart';
+
 
 
 class NotificationPage extends StatelessWidget {
@@ -43,12 +42,12 @@ class NotificationPage extends StatelessWidget {
                       children: [
                         Icon(
                           Iconsax.arrow_circle_left5,
-                          color: Palette.textcons,
+                          color: Palette.desctext,
                           size: 30,
                         ),
                         SizedBox(width: 12,),
                         Text("Activities",style: GoogleFonts.poppins(
-                          color: Palette.hinttext,
+                          color: Palette.desctext,
                           fontSize: 16,
                           fontWeight: FontWeight.w500
                         ),)
