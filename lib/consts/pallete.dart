@@ -22,7 +22,7 @@ class Palette {
   static const Color searchboxcolor = Color(0xFFFFF1EF); // #EB583E
   static const Color genreblack = Color(0xFF222222); // #EB583E
 
-  static const LinearGradient RHSGrad = LinearGradient(
+  static const LinearGradient rhsgrad = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
     colors: [

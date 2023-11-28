@@ -153,6 +153,10 @@ Widget buildOption(BuildContext context, String text, {Widget? suffixIcon, Widge
       } else if (text == 'Phone Num') {
         routeName = '/phone';
       }
+      else if (text == 'Date of Birth') {
+        routeName = '/dob';}
+      else if (text == 'Batch Num') {
+        routeName = '/batch';}
       navigateToPage(context, routeName);
     },
   );

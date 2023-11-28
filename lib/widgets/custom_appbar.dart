@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget {
             ShaderMask(
               blendMode: BlendMode.srcIn,
               shaderCallback: (Rect bounds) {
-                return Palette.RHSGrad.createShader(bounds); // Use your desired gradient here
+                return Palette.rhsgrad.createShader(bounds); // Use your desired gradient here
               },
               child: Text(
                 'RHSGrad',
